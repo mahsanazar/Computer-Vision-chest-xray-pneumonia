@@ -10,6 +10,8 @@ This project involves building a machine learning model to detect pneumonia from
 
 Create a `kaggle.json` file with your Kaggle API credentials and configure your environment to use the Kaggle API.
            
+
+
 "python
 import json
 
@@ -27,12 +29,16 @@ with open('kaggle.json', 'w') as file:
 
 ###     2. Download and Unzip Dataset
 Download the dataset from Kaggle and unzip it for use in the project.
+
+
 !kaggle datasets download -d paultimothymooney/chest-xray-pneumonia
 !unzip chest-xray-pneumonia.zip -d /content/dataset
 
 
 ### 3. Prepare the Data
 Set up the directories for training, validation, and testing, and define ImageDataGenerator for data augmentation and preprocessing.
+
+
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -72,6 +78,8 @@ val_generator = val_datagen.flow_from_directory(
 
 ### 4. Build and Train the Model
 Define and compile a Convolutional Neural Network (CNN) and train it using the prepared data.
+
+
 model = tf.keras.Sequential([
     tf.keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(224, 224, 1)),
     tf.keras.layers.MaxPooling2D((2, 2)),
@@ -132,6 +140,6 @@ plt.show()
 
 ### Requirements
 Python packages: json, os, numpy, matplotlib, tensorflow, sklearn, keras, kaggle
-Notes
+### Notes
 Replace the placeholder Kaggle username and key with your own credentials in the kaggle.json file.
 Ensure that all paths and parameters are correctly set for your specific environment.
